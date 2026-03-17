@@ -1,3 +1,6 @@
+# student data in this relation between student marks and attendence
+
+
 import pandas as pd
 
 data={'name':["shivam","kanu","ram","lucky","ansh","gagan"],
@@ -16,21 +19,29 @@ df.to_csv("data.csv",index=False)
 
 
 import pandas as pd 
-import matplotlib.pyplot as plt
-from sklearn.linear_model import LinearRegression
+
 
 data=pd.read_csv("data.csv")
 print(data)
 
 
-plt.plot(df["marks"],df["attendence"])
+
+import matplotlib.pyplot as plt
+plt.bar(df["attendence"],df["marks"])
 
 plt.title('relation between marks and attendence')
 
-plt.xlabel("marks")
-plt.ylabel("attendence")
+plt.xlabel("attendence")
+plt.ylabel("marks")
+
 
 plt.show()
+
+
+
+
+from sklearn.linear_model import LinearRegression
+
 
 model=LinearRegression()
 
@@ -42,7 +53,6 @@ model.fit(x,y)
 
 attendence=float(input("enter the your attendence"))
 
-# new_data = pd.DataFrame([[80]], columns=["attendence"])
 
 output=model.predict([[attendence]])
 
